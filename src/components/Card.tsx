@@ -180,15 +180,23 @@ export default function Card() {
           technical and visual aspects of digital products to life.
         </p>
         <div className="links">
-          <div className="icon-wrapper">
+          <a target="_blank" className="icon-wrapper">
             <Linkedin className="icon" size={30} />
-          </div>
-          <div className="icon-wrapper">
+          </a>
+          <a
+            target="_blank"
+            href="https://github.com/Orazmyrat-Hojamyradov"
+            className="icon-wrapper"
+          >
             <Github className="icon" size={30} />
-          </div>
-          <div className="icon-wrapper">
+          </a>
+          <a
+            target="_blank"
+            href="https://t.me/Orazgone"
+            className="icon-wrapper"
+          >
             <Send className="icon" size={30} />
-          </div>
+          </a>
         </div>
       </motion.div>
     </motion.div>
