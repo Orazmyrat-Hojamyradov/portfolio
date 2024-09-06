@@ -72,10 +72,11 @@ export default function Card() {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onMouseUp={handleMouseUp}
+      onMouseDown={handleMouseMove}
       onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      onMouseUp={handleMouseUp} // Reset on mouse up
-      onMouseDown={handleMouseMove} // Reapply tilt on mouse down
       style={{
         rotateX,
         rotateY,
