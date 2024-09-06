@@ -51,11 +51,18 @@ export default function Card() {
     y.set(yPct);
   };
 
-  const handleMouseLeave = () => {
+  // Reset motion values to initial position
+  const handleMouseUp = () => {
     x.set(0);
     y.set(0);
   };
+
   const handleTouchEnd = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
   };
@@ -67,18 +74,20 @@ export default function Card() {
       onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onMouseUp={handleMouseUp} // Reset on mouse up
+      onMouseDown={handleMouseMove} // Reapply tilt on mouse down
       style={{
         rotateX,
         rotateY,
-        perspective: 1000, // Add perspective for 3D depth effect
+        perspective: 1000,
         transformStyle: "preserve-3d",
-        transition: "transform 0.15s ease", // Smooth transition when tilting
+        transition: "transform 0.15s ease",
       }}
       className="card"
     >
       <motion.div
         style={{
-          transform: "translateZ(50px)", // Add depth to the content
+          transform: "translateZ(50px)",
         }}
         className="card-content"
       >
