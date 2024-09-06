@@ -1,9 +1,8 @@
 "use client";
 
-import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link2 } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const projectsData = [
   {
@@ -12,6 +11,7 @@ const projectsData = [
     img: "/images/climaton.png",
     github: "https://github.com/Orazmyrat-Hojamyradov/Climaton-web-page",
     deploy: "https://climaton-web-page-pink.vercel.app/",
+    delay: 0,
   },
   {
     title: "Github Search",
@@ -19,22 +19,25 @@ const projectsData = [
     img: "/images/github-search.png",
     github: "https://github.com/Orazmyrat-Hojamyradov/Github-search",
     deploy: "https://github-search-oraz.vercel.app/",
+    delay: 0.2,
   },
 ];
 
 export default function Project() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    setVisible(true);
-  }, []);
-
   return (
-    <>
+    <AnimatePresence>
       {projectsData.map((project) => (
-        <div
+        <motion.div
+          initial={{ x: "50%", opacity: 0 }}
+          animate={{ x: "0%", opacity: 1 }}
+          exit={{ x: "0%" }}
+          transition={{
+            duration: 0.2, // Duration of the animation in seconds
+            ease: "easeOut", // Custom easing function
+            delay: project.delay,
+          }}
           key={project.title}
-          className={clsx("project", visible ? "visible" : "")}
+          className={"project"}
         >
           <h2>{project.title}</h2>
           <p>{project.description}</p>
@@ -48,8 +51,8 @@ export default function Project() {
               Website
             </Link>
           </div>
-        </div>
+        </motion.div>
       ))}
-    </>
+    </AnimatePresence>
   );
 }
