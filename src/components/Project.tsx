@@ -19,7 +19,7 @@ const projectsData = [
     img: "/images/github-search.png",
     github: "https://github.com/Orazmyrat-Hojamyradov/Github-search",
     deploy: "https://github-search-oraz.vercel.app/",
-    delay: 0.2,
+    delay: 0.1,
   },
 ];
 
@@ -28,12 +28,11 @@ export default function Project() {
     <AnimatePresence>
       {projectsData.map((project) => (
         <motion.div
-          initial={{ x: "50%", opacity: 0 }}
+          initial={{ x: "70%", opacity: 0 }}
           animate={{ x: "0%", opacity: 1 }}
           exit={{ x: "0%" }}
           transition={{
-            duration: 0.2, // Duration of the animation in seconds
-            ease: "easeOut", // Custom easing function
+            duration: 0,
             delay: project.delay,
           }}
           key={project.title}

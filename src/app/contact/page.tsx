@@ -37,14 +37,14 @@ export default function Contacts() {
           animate={{ x: "0%", opacity: 1 }}
           exit={{ x: "0%" }}
           transition={{
-            duration: 0.2, // Duration of the animation in seconds
-            ease: "easeInOut", // Custom easing function (cubic bezier)
+            duration: 0.2,
+            ease: "easeInOut",
             delay: 0.1,
           }}
           className="contacts"
         >
           <Phone className="copy-icon" size={36} />
-          <span>+993 71360034</span>
+          <span>+993 71 360034</span>
           <Copy
             size={36}
             className="copy-icon"

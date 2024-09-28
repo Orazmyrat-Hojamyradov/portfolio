@@ -101,13 +101,13 @@ export default function Card() {
           technical and visual aspects of digital products to life.
         </p>
         <div className="links">
-          <a
+          {/* <a
             target="_blank"
             href="https://www.linkedin.com/in/oraz-hojamyradov-59827a327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             className="icon-wrapper"
           >
             <Linkedin className="icon" size={30} />
-          </a>
+          </a> */}
           <a
             target="_blank"
             href="https://github.com/Orazmyrat-Hojamyradov"
