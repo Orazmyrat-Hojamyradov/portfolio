@@ -15,7 +15,7 @@ const links = [
 
 export default function Header() {
   return (
-    <div>
+    <div className="navbar-wrapper">
       <div className="navbar">
         {links.map((link) => (
           <Link className="link" href={link.href} key={link.href}>
