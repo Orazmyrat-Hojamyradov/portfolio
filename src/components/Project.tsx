@@ -21,6 +21,13 @@ const projectsData = [
     deploy: "https://github-search-oraz.vercel.app/",
     delay: 0.1,
   },
+  {
+    title: "E-Commerce",
+    description: "E-Commerce page where you can sell and buy digital products",
+    github: "https://github.com/Orazmyrat-Hojamyradov/e-commerce",
+    deploy: "",
+    delay: 0.2,
+  },
 ];
 
 export default function Project() {

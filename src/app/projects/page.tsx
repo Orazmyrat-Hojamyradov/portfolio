@@ -3,7 +3,7 @@ import Project from "@/components/Project";
 
 export default function Projects() {
   return (
-    <>
+    <div className="projects">
       <div className="header">
         <BackBtn />
         <h1>Projects</h1>
@@ -11,6 +11,6 @@ export default function Projects() {
       <div className="projects-box">
         <Project />
       </div>
-    </>
+    </div>
   );
 }

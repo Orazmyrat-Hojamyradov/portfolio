@@ -2,7 +2,7 @@
 
 import BackBtn from "@/components/BackBtn";
 import { Copy, Mail, Phone } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Contacts() {
   return (
@@ -17,8 +17,8 @@ export default function Contacts() {
           animate={{ x: "0%", opacity: 1 }}
           exit={{ x: "0%" }}
           transition={{
-            duration: 0.2, // Duration of the animation in seconds
-            ease: "easeInOut", // Custom easing function (cubic bezier)
+            duration: 0.2,
+            ease: "easeInOut",
           }}
           className="contacts"
         >
@@ -49,7 +49,7 @@ export default function Contacts() {
             size={36}
             className="copy-icon"
             onClick={() => {
-              navigator.clipboard.writeText("+993 71360034");
+              navigator.clipboard.writeText("+99371360034");
             }}
           />
         </motion.div>
