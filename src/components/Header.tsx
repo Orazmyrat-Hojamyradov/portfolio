@@ -20,7 +20,7 @@ export default function Header() {
   const { download } = useDownloader();
 
   const fileUrl = "/CV-Orazmyrat.pdf";
-  const filename = "CV-Orazmyrat2.pdf";
+  const filename = "CV-Orazmyrat.pdf";
 
   return (
     <div className="navbar-wrapper">
