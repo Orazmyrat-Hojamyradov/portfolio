@@ -29,6 +29,9 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.3.1(react@18.3.1)
+      react-use-downloader:
+        specifier: ^1.2.8
+        version: 1.2.8(react@18.3.1)
       sass:
         specifier: ^1.77.8
         version: 1.77.8
@@ -1169,6 +1172,12 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-use-downloader@1.2.8:
+    resolution: {integrity: sha512-JYb9esgw2TmODSCmSEFSEd/lJ0xtO50ugOu2T/PaO0JNYvscBqJT0uY452p7N5mf37jqSET7Q5DxcgixH1631Q==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: ^17.0.2 || ^18
 
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
@@ -2752,6 +2761,10 @@ snapshots:
       scheduler: 0.23.2
 
   react-is@16.13.1: {}
+
+  react-use-downloader@1.2.8(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react@18.3.1:
     dependencies:
