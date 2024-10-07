@@ -2,25 +2,24 @@
 
 import { CircleUser, Github, Linkedin, Send } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Card() {
   const ref = useRef<HTMLDivElement>(null);
+  const [shinePos, setShinePos] = useState({ x: 50, y: 50 });
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Apply springs for smoother animations
   const xSpring = useSpring(x, { stiffness: 50, damping: 10 });
   const ySpring = useSpring(y, { stiffness: 50, damping: 10 });
 
-  // Apply transformations based on mouse movement
   const rotateX = useTransform(ySpring, [-1, 1], [25, -25]);
   const rotateY = useTransform(xSpring, [-1, 1], [-25, 25]);
 
-  // Handle mouse movement to adjust the tilt effect
   const handleMouseMove = (event: any) => {
     if (!ref.current) return;
+
     const rect = event.currentTarget.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
     const mouseY = event.clientY - rect.top;
@@ -30,6 +29,11 @@ export default function Card() {
 
     x.set(xOffset);
     y.set(yOffset);
+
+    setShinePos({
+      x: (mouseX / rect.width) * 100,
+      y: (mouseY / rect.height) * 100,
+    });
   };
 
   const handleTouchMove = (event: any) => {
@@ -49,34 +53,26 @@ export default function Card() {
 
     x.set(xPct);
     y.set(yPct);
-  };
 
-  // Reset motion values to initial position
-  const handleMouseUp = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  const handleTouchEnd = () => {
-    x.set(0);
-    y.set(0);
+    setShinePos({ x: (touchX / width) * 100, y: (touchY / height) * 100 });
   };
 
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+    setShinePos({ x: 50, y: 50 });
   };
 
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onMouseUp={handleMouseUp}
       onMouseDown={handleMouseMove}
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      onMouseUp={handleMouseLeave}
+      onMouseLeave={handleMouseLeave}
+      onTouchEnd={handleMouseLeave}
       style={{
         rotateX,
         rotateY,
@@ -86,12 +82,14 @@ export default function Card() {
       }}
       className="card"
     >
-      <motion.div
-        style={{
-          transform: "translateZ(50px)",
-        }}
-        className="card-content"
-      >
+      <motion.div className="card-content">
+        <div
+          className="shine"
+          style={{
+            background: `radial-gradient(circle at ${shinePos.x}% ${shinePos.y}%, rgba(255, 255, 255, 0.2), transparent 65%)`,
+          }}
+        />
+
         <CircleUser size={80} />
         <h1>Orazmyrat Hojamyradov</h1>
         <h3>Novice front-end developer</h3>
@@ -101,13 +99,6 @@ export default function Card() {
           technical and visual aspects of digital products to life.
         </p>
         <div className="links">
-          {/* <a
-            target="_blank"
-            href="https://www.linkedin.com/in/oraz-hojamyradov-59827a327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            className="icon-wrapper"
-          >
-            <Linkedin className="icon" size={30} />
-          </a> */}
           <a
             target="_blank"
             href="https://github.com/Orazmyrat-Hojamyradov"
